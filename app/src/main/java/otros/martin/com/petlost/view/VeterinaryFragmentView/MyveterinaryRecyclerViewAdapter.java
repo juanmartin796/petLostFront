@@ -11,11 +11,6 @@ import otros.martin.com.petlost.view.VeterinaryFragmentView.dummy.DummyContent.D
 
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link VeterinaryFragment.OnListFragmentVeterinaryInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
- */
 public class MyveterinaryRecyclerViewAdapter extends RecyclerView.Adapter<MyveterinaryRecyclerViewAdapter.ViewHolder> {
 
     private final List<DummyItem> mValues;
@@ -57,16 +52,16 @@ public class MyveterinaryRecyclerViewAdapter extends RecyclerView.Adapter<Myvete
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public DummyItem mItem;
+        private final View mView;
+        private final TextView mIdView;
+        private final TextView mContentView;
+        private DummyItem mItem;
 
-        public ViewHolder(View view) {
+        private ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mIdView = view.findViewById(R.id.item_number);
+            mContentView = view.findViewById(R.id.content);
         }
 
         @Override

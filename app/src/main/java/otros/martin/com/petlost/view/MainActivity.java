@@ -41,12 +41,15 @@ public class MainActivity extends AppCompatActivity implements PetLostFragment.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        initComponents();
+        changeFragment(new PetLostFragment());
+    }
 
+    private void initComponents() {
+        setContentView(R.layout.activity_main);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         fragmentManager  = getSupportFragmentManager();
-        changeFragment(new PetLostFragment());
     }
 
     private void changeFragment(Fragment fragmenNew){
