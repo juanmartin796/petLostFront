@@ -1,12 +1,19 @@
 package otros.martin.com.petlost.view.PetLostFragmentView;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.Target;
+import com.squareup.picasso.Picasso;
+
 import otros.martin.com.petlost.R;
+import otros.martin.com.petlost.view.MainActivity;
 import otros.martin.com.petlost.view.PetLostFragmentView.PetLostFragment.OnListFragmentPetLostInteractionListener;
 import otros.martin.com.petlost.view.PetLostFragmentView.dummy.DummyContent.DummyItem;
 
@@ -16,10 +23,12 @@ public class MyPetLostRecyclerViewAdapter extends RecyclerView.Adapter<MyPetLost
 
     private final List<DummyItem> mValues;
     private final OnListFragmentPetLostInteractionListener mListener;
+    private final Context mContext;
 
-    public MyPetLostRecyclerViewAdapter(List<DummyItem> items, OnListFragmentPetLostInteractionListener listener) {
+    public MyPetLostRecyclerViewAdapter(Context context, List<DummyItem> items, OnListFragmentPetLostInteractionListener listener) {
         mValues = items;
         mListener = listener;
+        mContext = context;
     }
 
     @Override
@@ -44,6 +53,14 @@ public class MyPetLostRecyclerViewAdapter extends RecyclerView.Adapter<MyPetLost
                 }
             }
         });
+        /*Glide.with(mContext)
+                .load(mValues.get(position).urlImage)
+                .override(Target.SIZE_ORIGINAL)
+                .into(holder.mIvPetLost);*/
+        Picasso.get().load(mValues.get(position).urlImage)
+                .into(holder.mIvPetLost);
+
+
     }
 
     @Override
@@ -55,11 +72,15 @@ public class MyPetLostRecyclerViewAdapter extends RecyclerView.Adapter<MyPetLost
         private final View mView;
         private final TextView mIdView;
         private DummyItem mItem;
+        private ImageView mIvPetLost;
 
         private ViewHolder(View view) {
             super(view);
             mView = view;
             mIdView = view.findViewById(R.id.item_title);
+
+
+            mIvPetLost = view.findViewById(R.id.iv_pet_lost);
         }
 
         @Override

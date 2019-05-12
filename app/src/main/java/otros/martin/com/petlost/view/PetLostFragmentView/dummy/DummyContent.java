@@ -23,7 +23,7 @@ public class DummyContent {
      */
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 
-    private static final int COUNT = 25;
+    private static final int COUNT = 100;
 
     static {
         // Add some sample items.
@@ -38,16 +38,22 @@ public class DummyContent {
     }
 
     private static DummyItem createDummyItem(int position) {
-        return new DummyItem("Animalito "+ position, "Item " + position, makeDetails(position));
+        return new DummyItem("Animalito "+ position, makeUrl(position));
     }
 
-    private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
+    private static String makeUrl(int position) {
+        if (position%6==0)
+            return "https://d17fnq9dkz9hgj.cloudfront.net/uploads/2012/11/92246580-lost-dog-632x475.jpg";
+        else if (position%5==0)
+            return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV0MyOIqpsZZQz6urBvUgxjZNUNHANcMPqwM4Papcx_Unw3wHpSg";
+        else if (position%4==0)
+            return "https://www.petmd.com/sites/default/files/petmd-lost-dog.jpg";
+        else if (position%3==0)
+            return "https://www.homeagain.com/static/images/articles/find-a-lost-dog-using-personality-clues.jpg";
+        else if (position%2==0){
+            return "https://www.dogingtonpost.com/wp-content/uploads/2018/06/LostDog_FB.jpg";
+        } else
+            return "https://www.edch.org.uk/sites/default/files/styles/2_column_header/public/lostdog.jpg?itok=wI8YLRCc";
     }
 
     /**
@@ -55,18 +61,16 @@ public class DummyContent {
      */
     public static class DummyItem {
         public final String id;
-        public final String content;
-        public final String details;
+        public final String urlImage;
 
-        public DummyItem(String id, String content, String details) {
+        public DummyItem(String id, String urlImage) {
             this.id = id;
-            this.content = content;
-            this.details = details;
+            this.urlImage = urlImage;
         }
 
         @Override
         public String toString() {
-            return content;
+            return id;
         }
     }
 }

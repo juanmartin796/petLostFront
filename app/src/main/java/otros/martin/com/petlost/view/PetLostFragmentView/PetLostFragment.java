@@ -33,7 +33,7 @@ public class PetLostFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new GridLayoutManager(context, 3));
-            recyclerView.setAdapter(new MyPetLostRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyPetLostRecyclerViewAdapter(getContext(), DummyContent.ITEMS, mListener));
         }
         return view;
     }
