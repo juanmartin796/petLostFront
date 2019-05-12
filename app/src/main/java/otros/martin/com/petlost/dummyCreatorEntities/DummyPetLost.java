@@ -1,5 +1,6 @@
 package otros.martin.com.petlost.dummyCreatorEntities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -59,7 +60,7 @@ public class DummyPetLost {
     /**
      * A dummy item representing a piece of content.
      */
-    public static class DummyItem {
+    public static class DummyItem implements Serializable {
         public final String id;
         public final String urlImage;
 
