@@ -66,8 +66,8 @@ public class MyveterinaryRecyclerViewAdapter extends RecyclerView.Adapter<Myvete
         private ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = view.findViewById(R.id.item_number);
-            mContentView = view.findViewById(R.id.content);
+            mIdView = view.findViewById(R.id.tv_name_veterinary);
+            mContentView = view.findViewById(R.id.tv_address_veterinary);
             mIvVeterinaryLogo = view.findViewById(R.id.iv_veterinary_logo);
         }
 
