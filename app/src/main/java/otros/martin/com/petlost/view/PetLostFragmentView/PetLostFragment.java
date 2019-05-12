@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import otros.martin.com.petlost.R;
-import otros.martin.com.petlost.view.PetLostFragmentView.dummy.DummyContent;
-import otros.martin.com.petlost.view.PetLostFragmentView.dummy.DummyContent.DummyItem;
+import otros.martin.com.petlost.dummyCreatorEntities.DummyPetLost;
+import otros.martin.com.petlost.dummyCreatorEntities.DummyPetLost.DummyItem;
 
 public class PetLostFragment extends Fragment {
     private OnListFragmentPetLostInteractionListener mListener;
@@ -33,7 +33,7 @@ public class PetLostFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new GridLayoutManager(context, 3));
-            recyclerView.setAdapter(new MyPetLostRecyclerViewAdapter(getContext(), DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyPetLostRecyclerViewAdapter(getContext(), DummyPetLost.ITEMS, mListener));
         }
         return view;
     }

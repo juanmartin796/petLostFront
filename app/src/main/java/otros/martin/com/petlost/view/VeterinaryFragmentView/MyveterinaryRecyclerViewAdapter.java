@@ -4,10 +4,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import otros.martin.com.petlost.R;
-import otros.martin.com.petlost.view.VeterinaryFragmentView.dummy.DummyContent.DummyItem;
+import otros.martin.com.petlost.dummyCreatorEntities.DummyVeterinary.DummyItem;
 
 import java.util.List;
 
@@ -44,6 +47,8 @@ public class MyveterinaryRecyclerViewAdapter extends RecyclerView.Adapter<Myvete
                 }
             }
         });
+        Picasso.get().load(mValues.get(position).urlVerinaryLogo)
+                .into(holder.mIvVeterinaryLogo);
     }
 
     @Override
@@ -56,12 +61,14 @@ public class MyveterinaryRecyclerViewAdapter extends RecyclerView.Adapter<Myvete
         private final TextView mIdView;
         private final TextView mContentView;
         private DummyItem mItem;
+        private ImageView mIvVeterinaryLogo;
 
         private ViewHolder(View view) {
             super(view);
             mView = view;
             mIdView = view.findViewById(R.id.item_number);
             mContentView = view.findViewById(R.id.content);
+            mIvVeterinaryLogo = view.findViewById(R.id.iv_veterinary_logo);
         }
 
         @Override

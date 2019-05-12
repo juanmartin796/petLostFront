@@ -11,8 +11,9 @@ import android.view.MenuItem;
 
 import otros.martin.com.petlost.R;
 import otros.martin.com.petlost.view.PetLostFragmentView.PetLostFragment;
-import otros.martin.com.petlost.view.PetLostFragmentView.dummy.DummyContent;
+import otros.martin.com.petlost.dummyCreatorEntities.DummyPetLost;
 import otros.martin.com.petlost.view.VeterinaryFragmentView.VeterinaryFragment;
+import otros.martin.com.petlost.dummyCreatorEntities.DummyVeterinary;
 
 public class MainActivity extends AppCompatActivity implements PetLostFragment.OnListFragmentPetLostInteractionListener, VeterinaryFragment.OnListFragmentVeterinaryInteractionListener {
 
@@ -63,12 +64,12 @@ public class MainActivity extends AppCompatActivity implements PetLostFragment.O
 
     }
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(DummyPetLost.DummyItem item) {
 
     }
 
     @Override
-    public void onListFragmentInteraction(otros.martin.com.petlost.view.VeterinaryFragmentView.dummy.DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(DummyVeterinary.DummyItem item) {
 
     }
 }

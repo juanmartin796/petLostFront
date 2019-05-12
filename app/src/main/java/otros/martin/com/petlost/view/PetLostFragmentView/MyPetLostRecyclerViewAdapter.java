@@ -8,14 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.Target;
 import com.squareup.picasso.Picasso;
 
 import otros.martin.com.petlost.R;
-import otros.martin.com.petlost.view.MainActivity;
 import otros.martin.com.petlost.view.PetLostFragmentView.PetLostFragment.OnListFragmentPetLostInteractionListener;
-import otros.martin.com.petlost.view.PetLostFragmentView.dummy.DummyContent.DummyItem;
+import otros.martin.com.petlost.dummyCreatorEntities.DummyPetLost.DummyItem;
 
 import java.util.List;
 
@@ -53,14 +50,8 @@ public class MyPetLostRecyclerViewAdapter extends RecyclerView.Adapter<MyPetLost
                 }
             }
         });
-        /*Glide.with(mContext)
-                .load(mValues.get(position).urlImage)
-                .override(Target.SIZE_ORIGINAL)
-                .into(holder.mIvPetLost);*/
         Picasso.get().load(mValues.get(position).urlImage)
                 .into(holder.mIvPetLost);
-
-
     }
 
     @Override

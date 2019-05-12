@@ -1,4 +1,4 @@
-package otros.martin.com.petlost.view.PetLostFragmentView.dummy;
+package otros.martin.com.petlost.dummyCreatorEntities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.Map;
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
-public class DummyContent {
+public class DummyPetLost {
 
     /**
      * An array of sample (dummy) items.
