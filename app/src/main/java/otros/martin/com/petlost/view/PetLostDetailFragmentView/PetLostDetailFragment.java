@@ -3,7 +3,9 @@ package otros.martin.com.petlost.view.PetLostDetailFragmentView;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import com.squareup.picasso.Picasso;
 
 import otros.martin.com.petlost.R;
 import otros.martin.com.petlost.dummyCreatorEntities.DummyPetLost;
+import otros.martin.com.petlost.utils.PicassoService;
 
 public class PetLostDetailFragment extends Fragment {
 
@@ -35,8 +38,7 @@ public class PetLostDetailFragment extends Fragment {
         bundle = getArguments();
         DummyPetLost.DummyItem petLost= (DummyPetLost.DummyItem) bundle.getSerializable("PetLost");
         if (petLost!=null){
-            Picasso.get().load(petLost.urlImage)
-                    .into(ivPetLost);
+            PicassoService.getInstance().run(getContext(), petLost.urlImage, ivPetLost);
             tvTitle.setText(petLost.id);
         }
         return view;

@@ -1,5 +1,6 @@
 package otros.martin.com.petlost.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import otros.martin.com.petlost.R;
@@ -53,6 +55,13 @@ public class MainActivity extends AppCompatActivity implements PetLostFragment.O
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         fragmentManager  = getSupportFragmentManager();
+        findViewById(R.id.floatingActionButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RegisterNewPetLost.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void changeFragment(Fragment fragmenNew){

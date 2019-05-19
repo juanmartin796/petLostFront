@@ -1,5 +1,6 @@
 package otros.martin.com.petlost.view.VeterinaryFragmentView;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import com.squareup.picasso.Picasso;
 
 import otros.martin.com.petlost.R;
 import otros.martin.com.petlost.dummyCreatorEntities.DummyVeterinary.DummyItem;
+import otros.martin.com.petlost.utils.PicassoService;
 
 import java.util.List;
 
@@ -18,10 +20,12 @@ public class MyveterinaryRecyclerViewAdapter extends RecyclerView.Adapter<Myvete
 
     private final List<DummyItem> mValues;
     private final VeterinaryFragment.OnListFragmentVeterinaryInteractionListener mListener;
+    private final Context mContext;
 
-    public MyveterinaryRecyclerViewAdapter(List<DummyItem> items, VeterinaryFragment.OnListFragmentVeterinaryInteractionListener listener) {
+    public MyveterinaryRecyclerViewAdapter(Context context, List<DummyItem> items, VeterinaryFragment.OnListFragmentVeterinaryInteractionListener listener) {
         mValues = items;
         mListener = listener;
+        mContext = context;
     }
 
     @Override
@@ -47,8 +51,7 @@ public class MyveterinaryRecyclerViewAdapter extends RecyclerView.Adapter<Myvete
                 }
             }
         });
-        Picasso.get().load(mValues.get(position).urlVerinaryLogo)
-                .into(holder.mIvVeterinaryLogo);
+        PicassoService.getInstance().run(mContext, mValues.get(position).urlVerinaryLogo, holder.mIvVeterinaryLogo);
     }
 
     @Override
@@ -76,4 +79,6 @@ public class MyveterinaryRecyclerViewAdapter extends RecyclerView.Adapter<Myvete
             return super.toString() + " '" + mContentView.getText() + "'";
         }
     }
+
+
 }

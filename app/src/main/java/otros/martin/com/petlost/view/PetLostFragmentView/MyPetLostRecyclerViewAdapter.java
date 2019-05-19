@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import otros.martin.com.petlost.R;
+import otros.martin.com.petlost.utils.PicassoService;
 import otros.martin.com.petlost.view.PetLostFragmentView.PetLostFragment.OnListFragmentPetLostInteractionListener;
 import otros.martin.com.petlost.dummyCreatorEntities.DummyPetLost.DummyItem;
 
@@ -51,8 +52,7 @@ public class MyPetLostRecyclerViewAdapter extends RecyclerView.Adapter<MyPetLost
                 }
             }
         });
-        Picasso.get().load(mValues.get(position).urlImage)
-                .into(holder.mIvPetLost);
+        PicassoService.getInstance().run(mContext, mValues.get(position).urlImage, holder.mIvPetLost);
     }
 
     @Override

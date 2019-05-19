@@ -33,7 +33,7 @@ public class VeterinaryFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
-            recyclerView.setAdapter(new MyveterinaryRecyclerViewAdapter(DummyVeterinary.ITEMS, mListener));
+            recyclerView.setAdapter(new MyveterinaryRecyclerViewAdapter(getContext(), DummyVeterinary.ITEMS, mListener));
         }
         return view;
     }
