@@ -38,7 +38,11 @@ public class RegisterNewPetLost extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Bitmap bitmap = ImagePicker.getImageFromResult(this, requestCode, resultCode, data);
-        PicassoService.getInstance().run(this, bitmap, ivImageLoadPet);
+        if (resultCode == RESULT_OK){
+            if (requestCode == 234){
+                Bitmap bitmap = ImagePicker.getImageFromResult(this, requestCode, resultCode, data);
+                PicassoService.getInstance().run(this, bitmap, ivImageLoadPet);
+            }
+        }
     }
 }
