@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements PetLostFragment.O
                     changeFragment(new PetLostFragment());
                     return true;
                 case R.id.navigation_dashboard:
-                    changeFragment(new PetLostFragment());
+                    changeFragment(new ProfileFragment());
                     return true;
                 case R.id.navigation_notifications:
                     changeFragment(new VeterinaryFragment());

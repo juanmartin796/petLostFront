@@ -14,14 +14,23 @@ import otros.martin.com.petlost.utils.PicassoService;
 
 public class RegisterNewPetLost extends AppCompatActivity {
     private final int REQUEST_IMAGE = 1;
-    ImageView ivImageLoadPet;
+    ImageView ivAddImage, ivDeleteImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_new_pet_lost);
-        ivImageLoadPet = findViewById(R.id.iv_image_load_pet);
-        findViewById(R.id.select_image).setOnClickListener(new View.OnClickListener() {
+        ivDeleteImage = findViewById(R.id.iv_delete_image);
+        ivDeleteImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ivAddImage.setImageResource(R.mipmap.ic_add_image);
+                ivDeleteImage.setVisibility(View.GONE);
+            }
+        });
+
+        ivAddImage = findViewById(R.id.select_image);
+        ivAddImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 /*ImagePicker.Companion.with(RegisterNewPetLost.this)
@@ -31,7 +40,6 @@ public class RegisterNewPetLost extends AppCompatActivity {
                         .start();*/
                 //ImagePicker.setMinQuality(600, 600);
                 ImagePicker.pickImage(RegisterNewPetLost.this, "Seleccione una imagen:");
-
             }
         });
     }
@@ -41,7 +49,8 @@ public class RegisterNewPetLost extends AppCompatActivity {
         if (resultCode == RESULT_OK){
             if (requestCode == 234){
                 Bitmap bitmap = ImagePicker.getImageFromResult(this, requestCode, resultCode, data);
-                PicassoService.getInstance().run(this, bitmap, ivImageLoadPet);
+                PicassoService.getInstance().run(this, bitmap, ivAddImage);
+                ivDeleteImage.setVisibility(View.VISIBLE);
             }
         }
     }
